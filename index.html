@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自己紹介 - Nguyễn Minh Tiệp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Base styles for the body */
+        body {
+            font-family: 'Noto Sans JP', 'Inter', sans-serif;
+            background-color: #fcfbf8; /* Very light, warm off-white */
+            color: #333;
+            line-height: 1.7; /* Adjusted line-height for better balance */
+            margin: 0;
+            padding: 30px; /* Slightly reduced padding for a tighter feel on large screens */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            font-size: 1rem; /* Adjusted base font size for better balance */
+        }
+
+        /* Container styling */
+        .container {
+            background-color: #ffffff;
+            border-radius: 18px; /* Slightly adjusted rounded corners */
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.07); /* Softer, slightly less deep shadow */
+            max-width: 880px; /* Slightly reduced max-width for better content flow */
+            width: 100%;
+            padding: 55px; /* Adjusted padding inside */
+            box-sizing: border-box;
+            border: 1px solid #e5e5e5; /* Subtle border */
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            animation: fadeIn 1s ease-out; /* Simple fade-in animation for the whole container */
+        }
+        .container:hover {
+            transform: translateY(-8px); /* Lifts up slightly less on hover */
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12); /* Slightly less prominent shadow on hover */
+        }
+
+        /* Avatar styling */
+        .avatar-container {
+            display: flex; /* Use flexbox for centering */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            margin-bottom: 35px; /* Increased space below avatar for better separation from title */
+            background-color: #fffaf5; /* Light background for the avatar section */
+            padding: 25px; /* Padding around the avatar inside its container */
+            border-radius: 12px; /* Rounded corners for the avatar background */
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.03); /* Subtle inner shadow */
+        }
+        .avatar {
+            width: 140px; /* Slightly reduced avatar size for better balance */
+            height: 140px;
+            border-radius: 50%; /* Make it round */
+            object-fit: cover; /* Ensure image covers the area without distortion */
+            border: 3px solid #c75c5c; /* Slightly thinner red border around avatar */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Subtle shadow for depth */
+            transition: transform 0.3s ease-in-out;
+        }
+        .avatar:hover {
+            transform: scale(1.03); /* Slightly less enlarge on hover */
+        }
+
+        /* Main title (h1) styling */
+        h1 {
+            font-size: 2.8rem; /* Slightly reduced main title size */
+            color: #3a3a3a;
+            text-align: center;
+            margin-bottom: 45px; /* Adjusted space below for balance */
+            padding-bottom: 18px; /* Adjusted padding below */
+            position: relative;
+            letter-spacing: 0.07em; /* Slightly reduced letter spacing */
+            font-weight: 700; /* Bolder font */
+        }
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; /* Adjusted position */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 110px; /* Slightly reduced accent line width */
+            height: 5px; /* Slightly thinner accent line */
+            background-color: #c75c5c; /* A slightly deeper, more elegant red */
+            border-radius: 3px;
+        }
+
+        /* Section title (h2) styling */
+        h2 {
+            font-size: 2rem; /* Slightly reduced section titles size */
+            color: #4a4a4a;
+            margin-top: 45px; /* Adjusted space above sections */
+            margin-bottom: 22px; /* Adjusted space below titles */
+            padding-left: 18px; /* Slightly reduced padding */
+            border-left: 7px solid #c75c5c; /* Slightly thinner, elegant red border */
+            letter-spacing: 0.025em; /* Slightly reduced letter spacing */
+            font-weight: 600; /* Bolder */
+            position: relative;
+        }
+        h2::before {
+            content: '';
+            position: absolute;
+            left: -3px; /* Adjusted offset for visual balance */
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+            width: 11px; /* Slightly reduced diamond size */
+            height: 11px;
+            background-color: #c75c5c;
+            border-radius: 3px; /* Square shape rotated to look like a diamond */
+        }
+
+        /* Paragraph and list styling */
+        p, ul {
+            margin-bottom: 22px; /* Consistent spacing */
+            padding-left: 18px; /* Consistent padding */
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        ul li {
+            position: relative;
+            padding-left: 32px; /* Slightly reduced space for bullet */
+            margin-bottom: 10px; /* Slightly reduced space between list items */
+        }
+        ul li::before {
+            content: '♦'; /* Using a diamond shape for bullets for a refined look */
+            color: #a0a0a0; /* Softer bullet color */
+            font-weight: normal;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1em; /* Slightly reduced bullet size */
+        }
+        strong {
+            color: #6a6a6a; /* Softer strong text color */
+            font-weight: 700; /* More emphasis */
+        }
+
+        /* Section separator styling */
+        .section-separator {
+            margin: 55px auto; /* Slightly reduced vertical space */
+            height: 1px; /* Thinner line */
+            width: 75%; /* Slightly shorter line for better balance */
+            background: linear-gradient(to right, transparent, #d0d0d0, transparent); /* Gradient line */
+            position: relative;
+            opacity: 0.7; /* Slightly more transparent */
+            border-radius: 0; /* No rounded corners for the line */
+        }
+        .section-separator::before,
+        .section-separator::after {
+            content: '';
+            position: absolute;
+            width: 14px; /* Slightly reduced dots size */
+            height: 14px;
+            background-color: #c75c5c; /* Red dots */
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 2px 7px rgba(0, 0, 0, 0.09); /* Slightly softer shadow */
+            animation: pulse 1.5s infinite alternate; /* Subtle pulse animation */
+        }
+        .section-separator::before {
+            left: -7px;
+        }
+        .section-separator::after {
+            right: -7px;
+            animation-delay: 0.75s; /* Staggered pulse */
+        }
+
+        /* Highlighted section styling */
+        .highlight-section {
+            background-color: #fffaf5; /* Soft, warm highlight background */
+            border: 1px solid #ffe8cc; /* Subtle border around highlighted section */
+            padding: 35px; /* Slightly reduced padding inside highlight */
+            border-radius: 14px; /* Slightly adjusted rounded corners */
+            margin-bottom: 45px; /* Slightly reduced space below */
+            box-shadow: 0 7px 22px rgba(0, 0, 0, 0.07); /* Slightly softer shadow */
+            transition: all 0.3s ease-in-out;
+        }
+        .highlight-section:hover {
+            transform: translateY(-6px); /* Lifts up slightly less */
+            box-shadow: 0 9px 28px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .container {
+                padding: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+                font-size: 0.95rem;
+            }
+            .container {
+                padding: 30px;
+                border-radius: 15px;
+            }
+            .avatar-container {
+                padding: 20px;
+            }
+            .avatar {
+                width: 120px;
+                height: 120px;
+            }
+            h1 {
+                font-size: 2.2rem;
+                margin-bottom: 35px;
+                padding-bottom: 15px;
+            }
+            h1::after {
+                width: 90px;
+                height: 4px;
+            }
+            h2 {
+                font-size: 1.7rem;
+                margin-top: 35px;
+                margin-bottom: 18px;
+                padding-left: 15px;
+                border-left-width: 5px;
+            }
+            h2::before {
+                width: 9px;
+                height: 9px;
+            }
+            p, ul {
+                margin-bottom: 18px;
+                padding-left: 15px;
+            }
+            ul li {
+                padding-left: 28px;
+                margin-bottom: 8px;
+            }
+            .highlight-section {
+                padding: 28px;
+                margin-bottom: 35px;
+            }
+            .section-separator {
+                margin: 35px auto;
+                width: 70%;
+            }
+            .section-separator::before,
+            .section-separator::after {
+                width: 11px;
+                height: 11px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+            .container {
+                padding: 25px;
+                border-radius: 12px;
+            }
+            .avatar-container {
+                padding: 15px;
+            }
+            .avatar {
+                width: 90px;
+                height: 90px;
+                border-width: 2px;
+            }
+            h1 {
+                font-size: 1.8rem;
+                margin-bottom: 25px;
+                padding-bottom: 10px;
+            }
+            h1::after {
+                width: 70px;
+                height: 3px;
+            }
+            h2 {
+                font-size: 1.4rem;
+                margin-top: 25px;
+                margin-bottom: 12px;
+                padding-left: 10px;
+                border-left-width: 4px;
+            }
+            h2::before {
+                width: 7px;
+                height: 7px;
+            }
+            p, ul {
+                margin-bottom: 15px;
+                padding-left: 10px;
+            }
+            ul li {
+                padding-left: 25px;
+                margin-bottom: 7px;
+                font-size: 0.9rem;
+            }
+            ul li::before {
+                font-size: 0.9em;
+            }
+            .highlight-section {
+                padding: 18px;
+                margin-bottom: 25px;
+            }
+            .section-separator {
+                margin: 28px auto;
+                width: 60%;
+            }
+            .section-separator::before,
+            .section-separator::after {
+                width: 9px;
+                height: 9px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: translateY(-50%) scale(1); opacity: 1; }
+            100% { transform: translateY(-50%) scale(1.1); opacity: 0.7; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="avatar-container">
+            <img src="z5955763677559_ed92784112f4955b63eb3ba9f0a6cf51.jpg" alt="Nguyễn Minh Tiệp Avatar" class="avatar">
+        </div>
+        <h1>自己紹介 - Nguyễn Minh Tiệp</h1>
+
+        <section>
+            <h2>基本情報 </h2>
+            <p><strong>名前 :</strong> グエン・ミン・ティエップ (Nguyễn Minh Tiệp)</p>
+            <p><strong>生年月日 :</strong> 2005年10月04日</p>
+        </section>
+
+        <div class="section-separator"></div>
+
+        <section>
+            <h2>性格 </h2>
+            <p>私は親切で思いやりがあり、活発でエネルギッシュな人間です。</p>
+        </section>
+
+        <div class="section-separator"></div>
+
+        <section class="highlight-section">
+            <h2>強み </h2>
+            <ul>
+                <li><strong>高い責任感と情熱:</strong> 私は非常に責任感が強く、仕事に情熱を持ち、高いプレッシャーにも耐えることができます。</li>
+                <li><strong>効果的なチームワーク能力:</strong> プロジェクトの成功は、個人のスキルだけでなく、メンバー間の円滑な連携にかかっていると信じています。私は常に他者の意見に耳を傾け、積極的に意見交換し、共通の目標達成のためにチームメイトをサポートするよう努めます。</li>
+            </ul>
+        </section>
+
+        <div class="section-separator"></div>
+
+        <section>
+            <h2>弱みと改善策 </h2>
+            <ul>
+                <li><strong>感情表現が苦手:</strong> 感情表現が苦手なため、誤解されやすいことがあります。
+                    <br><em>改善策:</em> コミュニケーション能力向上のため、ソフトスキルを磨く努力をしています。</li>
+                <li><strong>時に不注意:</strong> 時には不주의で、期待通りの結果が得られないことがあります。
+                    <br><em>改善策:</em> 各段階、各工程で真剣かつ慎重に作業するよう努めています。</li>
+            </ul>
+        </section>
+
+        <div class="section-separator"></div>
+
+        <section class="highlight-section">
+            <h2>将来の目標 </h2>
+            <p>私はプロのバックエンド開発者になりたいです。この目標を達成するため、Node.js、NestJS、Express.jsなどの最新のバックエンド技術、MySQL、PostgreSQLなどのデータベース、そしてシステムセキュリティに関する知識を深めています。</p>
+            <p>直近の目標としては、できるだけ早くJLPT N3、N2の資格を取得し、卒業前にN2を取得することです。また、目標達成のための専門知識を習得し、期限内に卒業することを目指しています。</p>
+        </section>
+
+        <div class="section-separator"></div>
+
+        <section>
+            <h2>日本で働きたい理由 </h2>
+            <p>日本は、先進技術、プロフェッショナルな職場環境、そして製品に対する高い基準で知られる国であるため、日本で働くことを強く望んでいます。日本は世界有数のテクノロジー企業が集まる場所であるだけでなく、責任感、規律、細部への配慮を重んじる国でもあり、これらは私が非常に尊敬し、学びたいと考えている要素です。</p>
+            <p>このような環境で働くことで、専門知識を絶えず磨き、チームワークスキルを高め、現代のソフトウェア開発技術やプロセスに触れることができると信じています。これは、専門分野と仕事の考え方の両方で総合的に成長するための貴重な機会となり、大規模で国際的な影響力を持つプロジェクトにより効果的に貢献できるようになるでしょう。</p>
+        </section>
+    </div>
+</body>
+</html>
